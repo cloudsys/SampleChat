@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.6.0_31" class="java.beans.XMLDecoder"> 
+ <object class="com.jformdesigner.model.FormModel"> 
+  <void method="setProperty"> 
+   <string>i18n.bundlePackage</string> 
+   <string>org.romppu.tutorial.chat.gui.swing</string> 
+  </void> 
+  <void method="setProperty"> 
+   <string>i18n.bundleName</string> 
+   <string>LoginDialogBundle</string> 
+  </void> 
+  <void method="setProperty"> 
+   <string>i18n.keyPrefix</string> 
+   <string>LoginDialog</string> 
+  </void> 
+  <void property="contentType"> 
+   <string>form/swing</string> 
+  </void> 
+  <void property="root"> 
+   <object class="com.jformdesigner.model.FormRoot"> 
+    <void method="add"> 
+     <object class="com.jformdesigner.model.FormWindow"> 
+      <string>javax.swing.JDialog</string> 
+      <object class="com.jformdesigner.model.FormLayoutManager"> 
+       <class>java.awt.BorderLayout</class> 
+      </object> 
+      <void method="setProperty"> 
+       <string>defaultCloseOperation</string> 
+       <int>2</int> 
+      </void> 
+      <void method="setProperty"> 
+       <string>title</string> 
+       <object class="com.jformdesigner.model.FormMessage"> 
+        <null/> 
+        <string>LoginDialog.this.title</string> 
+       </object> 
+      </void> 
+      <void method="setProperty"> 
+       <string>$sizePolicy</string> 
+       <int>1</int> 
+      </void> 
+      <void method="add"> 
+       <object class="com.jformdesigner.model.FormContainer"> 
+        <string>javax.swing.JPanel</string> 
+        <object class="com.jformdesigner.model.FormLayoutManager"> 
+         <class>java.awt.BorderLayout</class> 
+         <void method="setProperty"> 
+          <string>hgap</string> 
+          <int>10</int> 
+         </void> 
+         <void method="setProperty"> 
+          <string>vgap</string> 
+          <int>10</int> 
+         </void> 
+        </object> 
+        <void method="setProperty"> 
+         <string>border</string> 
+         <object class="javax.swing.border.EmptyBorder"> 
+          <int>20</int> 
+          <int>20</int> 
+          <int>20</int> 
+          <int>20</int> 
+         </object> 
+        </void> 
+        <void property="name"> 
+         <string>jPanel5</string> 
+        </void> 
+        <void method="add"> 
+         <object class="com.jformdesigner.model.FormContainer"> 
+          <string>javax.swing.JPanel</string> 
+          <object class="com.jformdesigner.model.FormLayoutManager"> 
+           <class>java.awt.GridLayout</class> 
+           <void method="setProperty"> 
+            <string>columns</string> 
+            <int>0</int> 
+           </void> 
+           <void method="setProperty"> 
+            <string>rows</string> 
+            <int>2</int> 
+           </void> 
+           <void method="setProperty"> 
+            <string>hgap</string> 
+            <int>10</int> 
+           </void> 
+           <void method="setProperty"> 
+            <string>vgap</string> 
+            <int>10</int> 
+           </void> 
+          </object> 
+          <void property="name"> 
+           <string>jPanel4</string> 
+          </void> 
+          <void method="add"> 
+           <object class="com.jformdesigner.model.FormContainer"> 
+            <string>javax.swing.JPanel</string> 
+            <object class="com.jformdesigner.model.FormLayoutManager"> 
+             <class>java.awt.BorderLayout</class> 
+             <void method="setProperty"> 
+              <string>hgap</string> 
+              <int>10</int> 
+             </void> 
+            </object> 
+            <void property="name"> 
+             <string>uidPanel</string> 
+            </void> 
+            <void method="add"> 
+             <object class="com.jformdesigner.model.FormComponent"> 
+              <string>javax.swing.JLabel</string> 
+              <void method="setProperty"> 
+               <string>text</string> 
+               <object class="com.jformdesigner.model.FormMessage"> 
+                <null/> 
+                <string>LoginDialog.jLabel1.text</string> 
+               </object> 
+              </void> 
+              <void method="setProperty"> 
+               <string>preferredSize</string> 
+               <object class="java.awt.Dimension"> 
+                <int>100</int> 
+                <int>14</int> 
+               </object> 
+              </void> 
+              <void property="name"> 
+               <string>jLabel1</string> 
+              </void> 
+             </object> 
+             <object class="com.jformdesigner.model.FormLayoutConstraints"> 
+              <class>java.lang.String</class> 
+              <void method="setProperty"> 
+               <string>value</string> 
+               <string>West</string> 
+              </void> 
+             </object> 
+            </void> 
+            <void method="add"> 
+             <object class="com.jformdesigner.model.FormComponent"> 
+              <string>javax.swing.JTextField</string> 
+              <void property="name"> 
+               <string>uidField</string> 
+              </void> 
+             </object> 
+             <object class="com.jformdesigner.model.FormLayoutConstraints"> 
+              <class>java.lang.String</class> 
+              <void method="setProperty"> 
+               <string>value</string> 
+               <string>Center</string> 
+              </void> 
+             </object> 
+            </void> 
+           </object> 
+          </void> 
+          <void method="add"> 
+           <object class="com.jformdesigner.model.FormContainer"> 
+            <string>javax.swing.JPanel</string> 
+            <object class="com.jformdesigner.model.FormLayoutManager"> 
+             <class>java.awt.BorderLayout</class> 
+             <void method="setProperty"> 
+              <string>hgap</string> 
+              <int>10</int> 
+             </void> 
+            </object> 
+            <void property="name"> 
+             <string>pwdPanel</string> 
+            </void> 
+            <void method="add"> 
+             <object class="com.jformdesigner.model.FormComponent"> 
+              <string>javax.swing.JLabel</string> 
+              <void method="setProperty"> 
+               <string>text</string> 
+               <object class="com.jformdesigner.model.FormMessage"> 
+                <null/> 
+                <string>LoginDialog.jLabel2.text</string> 
+               </object> 
+              </void> 
+              <void method="setProperty"> 
+               <string>preferredSize</string> 
+               <object class="java.awt.Dimension"> 
+                <int>100</int> 
+                <int>14</int> 
+               </object> 
+              </void> 
+              <void property="name"> 
+               <string>jLabel2</string> 
+              </void> 
+             </object> 
+             <object class="com.jformdesigner.model.FormLayoutConstraints"> 
+              <class>java.lang.String</class> 
+              <void method="setProperty"> 
+               <string>value</string> 
+               <string>West</string> 
+              </void> 
+             </object> 
+            </void> 
+            <void method="add"> 
+             <object class="com.jformdesigner.model.FormComponent"> 
+              <string>javax.swing.JPasswordField</string> 
+              <void property="name"> 
+               <string>jPasswordField1</string> 
+              </void> 
+             </object> 
+             <object class="com.jformdesigner.model.FormLayoutConstraints"> 
+              <class>java.lang.String</class> 
+              <void method="setProperty"> 
+               <string>value</string> 
+               <string>Center</string> 
+              </void> 
+             </object> 
+            </void> 
+           </object> 
+          </void> 
+         </object> 
+         <object class="com.jformdesigner.model.FormLayoutConstraints"> 
+          <class>java.lang.String</class> 
+          <void method="setProperty"> 
+           <string>value</string> 
+           <string>Center</string> 
+          </void> 
+         </object> 
+        </void> 
+        <void method="add"> 
+         <object class="com.jformdesigner.model.FormComponent"> 
+          <string>javax.swing.JLabel</string> 
+          <void method="setProperty"> 
+           <string>text</string> 
+           <object class="com.jformdesigner.model.FormMessage"> 
+            <null/> 
+            <string>LoginDialog.jLabel3.text</string> 
+           </object> 
+          </void> 
+          <void method="setProperty"> 
+           <string>verticalAlignment</string> 
+           <int>1</int> 
+          </void> 
+          <void property="name"> 
+           <string>jLabel3</string> 
+          </void> 
+         </object> 
+         <object class="com.jformdesigner.model.FormLayoutConstraints"> 
+          <class>java.lang.String</class> 
+          <void method="setProperty"> 
+           <string>value</string> 
+           <string>North</string> 
+          </void> 
+         </object> 
+        </void> 
+        <void method="add"> 
+         <object class="com.jformdesigner.model.FormContainer"> 
+          <string>javax.swing.JPanel</string> 
+          <object class="com.jformdesigner.model.FormLayoutManager"> 
+           <class>java.awt.BorderLayout</class> 
+          </object> 
+          <void property="name"> 
+           <string>jPanel6</string> 
+          </void> 
+          <void method="add"> 
+           <object class="com.jformdesigner.model.FormContainer"> 
+            <string>javax.swing.JPanel</string> 
+            <object class="com.jformdesigner.model.FormLayoutManager"> 
+             <class>java.awt.GridLayout</class> 
+             <void method="setProperty"> 
+              <string>columns</string> 
+              <int>0</int> 
+             </void> 
+             <void method="setProperty"> 
+              <string>rows</string> 
+              <int>1</int> 
+             </void> 
+             <void method="setProperty"> 
+              <string>hgap</string> 
+              <int>5</int> 
+             </void> 
+            </object> 
+            <void property="name"> 
+             <string>jPanel1</string> 
+            </void> 
+            <void method="add"> 
+             <object class="com.jformdesigner.model.FormComponent"> 
+              <string>javax.swing.JButton</string> 
+              <void method="setProperty"> 
+               <string>text</string> 
+               <object class="com.jformdesigner.model.FormMessage"> 
+                <null/> 
+                <string>LoginDialog.cancelButton.text</string> 
+               </object> 
+              </void> 
+              <void property="name"> 
+               <string>cancelButton</string> 
+              </void> 
+              <void method="addEvent"> 
+               <object class="com.jformdesigner.model.FormEvent"> 
+                <string>java.awt.event.ActionListener</string> 
+                <string>actionPerformed</string> 
+                <string>cancelButtonActionPerformed</string> 
+                <boolean>true</boolean> 
+               </object> 
+              </void> 
+             </object> 
+            </void> 
+            <void method="add"> 
+             <object class="com.jformdesigner.model.FormComponent"> 
+              <string>javax.swing.JButton</string> 
+              <void method="setProperty"> 
+               <string>text</string> 
+               <object class="com.jformdesigner.model.FormMessage"> 
+                <null/> 
+                <string>LoginDialog.loginButton.text</string> 
+               </object> 
+              </void> 
+              <void property="name"> 
+               <string>loginButton</string> 
+              </void> 
+              <void method="addEvent"> 
+               <object class="com.jformdesigner.model.FormEvent"> 
+                <string>java.awt.event.ActionListener</string> 
+                <string>actionPerformed</string> 
+                <string>loginButtonActionPerformed</string> 
+                <boolean>true</boolean> 
+               </object> 
+              </void> 
+             </object> 
+            </void> 
+           </object> 
+           <object class="com.jformdesigner.model.FormLayoutConstraints"> 
+            <class>java.lang.String</class> 
+            <void method="setProperty"> 
+             <string>value</string> 
+             <string>East</string> 
+            </void> 
+           </object> 
+          </void> 
+         </object> 
+         <object class="com.jformdesigner.model.FormLayoutConstraints"> 
+          <class>java.lang.String</class> 
+          <void method="setProperty"> 
+           <string>value</string> 
+           <string>Last</string> 
+          </void> 
+         </object> 
+        </void> 
+       </object> 
+       <object class="com.jformdesigner.model.FormLayoutConstraints"> 
+        <class>java.lang.String</class> 
+        <void method="setProperty"> 
+         <string>value</string> 
+         <string>Center</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void property="name"> 
+       <string>this</string> 
+      </void> 
+     </object> 
+     <object class="com.jformdesigner.model.FormLayoutConstraints"> 
+      <null/> 
+      <void method="setProperty"> 
+       <string>size</string> 
+       <object class="java.awt.Dimension"> 
+        <int>385</int> 
+        <int>205</int> 
+       </object> 
+      </void> 
+      <void method="setProperty"> 
+       <string>location</string> 
+       <object class="java.awt.Point"> 
+        <int>0</int> 
+        <int>0</int> 
+       </object> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="com.jformdesigner.model.FormNonVisual"> 
+      <string>org.romppu.tutorial.chat.gui.swing.LoginBean</string> 
+      <void property="name"> 
+       <string>loginBean</string> 
+      </void> 
+     </object> 
+     <object class="com.jformdesigner.model.FormLayoutConstraints"> 
+      <null/> 
+      <void method="setProperty"> 
+       <string>location</string> 
+       <object class="java.awt.Point"> 
+        <int>5</int> 
+        <int>245</int> 
+       </object> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="addBindingGroup"> 
+     <object class="com.jformdesigner.model.FormBindingGroup"> 
+      <class>org.jdesktop.beansbinding.BindingGroup</class> 
+      <void method="addBinding"> 
+       <object class="com.jformdesigner.model.FormBinding"> 
+        <string>loginBean</string> 
+        <string>${userName}</string> 
+        <string>uidField</string> 
+        <string>text</string> 
+        <void method="setProperty"> 
+         <string>name</string> 
+         <string>userName</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="addBinding"> 
+       <object class="com.jformdesigner.model.FormBinding"> 
+        <string>loginBean</string> 
+        <string>${password}</string> 
+        <string>jPasswordField1</string> 
+        <string>text</string> 
+        <void method="setProperty"> 
+         <string>name</string> 
+         <string>password</string> 
+        </void> 
+       </object> 
+      </void> 
+     </object> 
+    </void> 
+   </object> 
+  </void> 
+ </object> 
+</java> 
