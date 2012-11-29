@@ -5,7 +5,7 @@
 package org.romppu.tutorial.chat.ejb.security;
 
 import org.romppu.tutorial.chat.common.SampleChatException;
-import org.romppu.tutorial.chat.ejb.ICLogger;
+import org.romppu.tutorial.chat.ejb.SampleChatLogger;
 import org.romppu.tutorial.chat.ejb.UserSessionBean;
 import org.romppu.tutorial.chat.ejb.annotation.PermissionsRequired;
 import org.romppu.tutorial.chat.ejb.annotation.RolesRequired;
@@ -29,7 +29,7 @@ import java.util.List;
 @Interceptor
 public class ChatSecurityInterceptor implements Serializable {
  
-    private static final Logger logger = ICLogger.getLogger(ChatSecurityInterceptor.class);
+    private static final Logger logger = SampleChatLogger.getLogger(ChatSecurityInterceptor.class);
 
     public ChatSecurityInterceptor() {
 

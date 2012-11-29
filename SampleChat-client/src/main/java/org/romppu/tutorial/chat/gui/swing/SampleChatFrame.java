@@ -85,7 +85,7 @@ public class SampleChatFrame extends javax.swing.JFrame implements SimpleTopicSu
     }
 
     @Override
-    public void onCollaboratorArrived(String nickName) {
+    public void onCollaboratorArrive(String nickName) {
         try {
             if (!nickName.equals(SampleChatApplication.userSessionBean.getLoginName())) {
                 collaboratorsListModel.add(0, nickName);
@@ -96,7 +96,7 @@ public class SampleChatFrame extends javax.swing.JFrame implements SimpleTopicSu
     }
 
     @Override
-    public void onCollaboratorLieved(String nickName) {
+    public void onCollaboratorLieve(String nickName) {
         try {
             collaboratorsListModel.removeElement(nickName);
             if (SampleChatApplication.userSessionBean.getLoginName().equals(nickName)) {
@@ -115,6 +115,7 @@ public class SampleChatFrame extends javax.swing.JFrame implements SimpleTopicSu
             }
             sampleChatFrameBean.setLoggedIn(true);
             setTitle(MessageFormat.format(TITLE, nickName));
+            banButton.setEnabled(SampleChatApplication.userSessionBean.hasPermissions("BAN"));
         } catch (Exception ex) {
             ExceptionHandler.handleException(ex);
         }
@@ -293,6 +294,9 @@ public class SampleChatFrame extends javax.swing.JFrame implements SimpleTopicSu
         bindingGroup.addBinding(Bindings.createAutoBinding(UpdateStrategy.READ_WRITE,
             sampleChatFrameBean, BeanProperty.create("chatMessage"),
             chatMessageField, BeanProperty.create("text")));
+        bindingGroup.addBinding(Bindings.createAutoBinding(UpdateStrategy.READ_WRITE,
+            collaboratorsList, BeanProperty.create("selectedElement"),
+            sampleChatFrameBean, BeanProperty.create("selectedCollaborator")));
         bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -334,6 +338,10 @@ public class SampleChatFrame extends javax.swing.JFrame implements SimpleTopicSu
 
     private void banButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_banButtonActionPerformed
         try {
+            if (sampleChatFrameBean.getSelectedCollaborator() == null) {
+                JOptionPane.showMessageDialog(this, "Select collaborator from list");
+                return;
+            }
             SampleChatApplication.userSessionBean.banUser(sampleChatFrameBean.getSelectedCollaborator());
         } catch (Exception ex) {
             ExceptionHandler.handleException(ex);

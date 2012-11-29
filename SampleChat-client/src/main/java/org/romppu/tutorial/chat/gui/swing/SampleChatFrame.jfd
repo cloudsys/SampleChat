@@ -458,6 +458,14 @@
         <string>text</string> 
        </object> 
       </void> 
+      <void method="addBinding"> 
+       <object class="com.jformdesigner.model.FormBinding"> 
+        <string>collaboratorsList</string> 
+        <string>selectedElement</string> 
+        <string>sampleChatFrameBean</string> 
+        <string>selectedCollaborator</string> 
+       </object> 
+      </void> 
      </object> 
     </void> 
    </object> 

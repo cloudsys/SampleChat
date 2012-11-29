@@ -19,7 +19,7 @@ import java.util.Date;
  */
 @Stateless
 @LocalBean
-public class MessagePersistent implements Serializable {
+public class MessagePersistence implements Serializable {
     
     @PersistenceContext(unitName="ICDB")
     EntityManager em;

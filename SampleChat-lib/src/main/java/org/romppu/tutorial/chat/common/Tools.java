@@ -4,38 +4,17 @@
  */
 package org.romppu.tutorial.chat.common;
 
-import java.awt.Color;
-import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Paint;
-import java.awt.Rectangle;
-import java.awt.TexturePaint;
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.math.BigDecimal;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLDecoder;
+import java.net.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -43,7 +22,6 @@ import javax.swing.ImageIcon;
  */
 public class Tools {
 
-    public static final String WIN_PATH = "rundll32 url.dll,FileProtocolHandler";
     public static final long WORD_MASK = 0xffffffffffffffffL;
 
     private static int getSizeOf(File file, int size) {
@@ -65,15 +43,6 @@ public class Tools {
         return path.replaceAll(" ", "%20").replaceAll("\\\\", "/");
     }
 
-    public static void main(String... params) throws UnsupportedEncodingException {
-        Pattern p = Pattern.compile("http://www.themoviedb.org/movie/([0-9]+)([a-z\\-0-9]+)");
-        Matcher m = p.matcher("http://www.themoviedb.org/movie/1571-live-free-or-die-hard");
-        System.out.println(m.find());
-        System.out.println(m.group(1));
-        System.out.println(m.group(2));
-
-    }
-
     public static boolean deleteDir(File dir) {
         if (dir.isDirectory()) {
             String[] children = dir.list();
@@ -87,20 +56,6 @@ public class Tools {
         return dir.delete();
     }
 
-    /*public static String buildErrorMsg(String baseMessage, Throwable throwable) {
-     StringBuilder builder = new StringBuilder();
-     builder.append(baseMessage);
-     builder.append('\n');
-     builder.append("Error: ");
-     if (throwable.getCause() != null) {
-     builder.append(throwable.getCause().getMessage());
-     } else {
-     builder.append(throwable.getMessage());
-     }
-     builder.append('\n');
-     builder.append("See output log for more details");
-     return builder.toString();
-     }  */
     public static String cut(String str, int len) {
         if (str == null) {
             return null;
@@ -304,20 +259,7 @@ public class Tools {
     public static void openLocalFile(File p_file) throws Exception {
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.OPEN)) {
             Desktop.getDesktop().browse(getFileURI(p_file.getPath()));
-        } else {
-            Tools.executeFile(p_file.getPath());
-        }
-    }
-
-    public static boolean executeFile(String p_filePath) {
-        try {
-            String a_cmd = WIN_PATH + " " + p_filePath;
-            Process a_process = Runtime.getRuntime().exec(a_cmd);
-            a_process.waitFor();
-            return true;
-        } catch (Exception ex) {
-            return false;
-        }
+        } throw new Exception("Desktop API is unsupported");
     }
 
     public static Map<String, String> readParameters(String... params) {

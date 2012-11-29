@@ -4,15 +4,16 @@
  */
 package org.romppu.tutorial.chat.ejb;
 
-import java.io.File;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+
+import java.io.File;
 
 /**
  *
  * @author roman
  */
-public class ICLogger {
+public class SampleChatLogger {
     
     static {
         try {

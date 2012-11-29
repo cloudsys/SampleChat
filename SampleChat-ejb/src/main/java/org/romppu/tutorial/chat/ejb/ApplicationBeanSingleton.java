@@ -28,7 +28,7 @@ import java.util.*;
 @LocalBean
 public class ApplicationBeanSingleton implements Serializable {
 
-    private Logger logger = ICLogger.getLogger(ApplicationBeanSingleton.class);
+    private Logger logger = SampleChatLogger.getLogger(ApplicationBeanSingleton.class);
     
     private Map<String, Object> sessionMap = new Hashtable();
 

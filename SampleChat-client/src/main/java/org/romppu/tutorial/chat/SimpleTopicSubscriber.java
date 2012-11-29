@@ -22,8 +22,8 @@ public class SimpleTopicSubscriber {
  
     public interface TopicListener {
         public void onMessage(String nickName, String text, Image img);
-        public void onCollaboratorArrived(String nickName);
-        public void onCollaboratorLieved(String nickName);
+        public void onCollaboratorArrive(String nickName);
+        public void onCollaboratorLieve(String nickName);
     }
     
     private final TopicConnectionFactory topicConnectionFactory;
@@ -68,10 +68,10 @@ public class SimpleTopicSubscriber {
                         topicListener.onMessage(nick, text, image);
                         break;
                     case COLLABORATOR_ARRIVE:
-                        topicListener.onCollaboratorArrived(nick);
+                        topicListener.onCollaboratorArrive(nick);
                         break;
                     case COLLABORATOR_LIEVE:
-                        topicListener.onCollaboratorLieved(nick);
+                        topicListener.onCollaboratorLieve(nick);
                         break;
                 }
             } catch (Exception ex) {

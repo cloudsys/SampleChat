@@ -4,6 +4,12 @@
  */
 package org.romppu.tutorial.chat.ejb;
 
+import org.apache.log4j.Logger;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.romppu.tutorial.chat.common.ChatMessage;
 import org.romppu.tutorial.chat.common.ImageData;
 import org.romppu.tutorial.chat.common.SampleChatException;
@@ -12,13 +18,6 @@ import org.romppu.tutorial.chat.ejb.annotation.RolesRequired;
 import org.romppu.tutorial.chat.ejb.annotation.Secured;
 import org.romppu.tutorial.chat.ejb.remote.UserSessionBeanRemote;
 import org.romppu.tutorial.chat.ejb.security.SecuredSubjectOwner;
-import org.apache.log4j.Logger;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -39,7 +38,7 @@ import java.util.List;
 @Secured
 public class UserSessionBean implements UserSessionBeanRemote, SecuredSubjectOwner {
 
-    private static final Logger logger = ICLogger.getLogger(UserSessionBean.class);
+    private static final Logger logger = SampleChatLogger.getLogger(UserSessionBean.class);
 
     @EJB
     ApplicationBeanSingleton applicationBeanSingleton;
@@ -51,7 +50,7 @@ public class UserSessionBean implements UserSessionBeanRemote, SecuredSubjectOwn
     }
 
     @Override
-    @RolesRequired("COLLABORATOR")
+    @PermissionsRequired("COMMON")
     public String getLoginName() throws SampleChatException {
         return getUserName();
     }    
@@ -75,7 +74,7 @@ public class UserSessionBean implements UserSessionBeanRemote, SecuredSubjectOwn
     }
 
     @Override
-    @RolesRequired("COLLABORATOR")
+    @PermissionsRequired("COMMON")
     public void logout() throws SampleChatException {
         try {
             if (getSubject() == null || !getSubject().isAuthenticated()) return;
@@ -91,13 +90,12 @@ public class UserSessionBean implements UserSessionBeanRemote, SecuredSubjectOwn
     }
 
     @Override
-    @RolesRequired("COLLABORATOR")
+    @PermissionsRequired("COMMON")
     public List getCollaborators() {
         return applicationBeanSingleton.getNickNameList();
     }
 
     @Override
-    @RolesRequired("ADMIN")
     @PermissionsRequired("BAN")
     public void banUser(String selectedCollaborator) throws SampleChatException {
         applicationBeanSingleton.unregisterSession(selectedCollaborator);
@@ -133,12 +131,12 @@ public class UserSessionBean implements UserSessionBeanRemote, SecuredSubjectOwn
     }
 
     @Override
-    @RolesRequired("COMMON")
+    @PermissionsRequired("COMMON")
     public boolean hasPermissions(String... permissions) throws SampleChatException {
-        Subject subject = SecurityUtils.getSubject();
         return subject.isPermittedAll(permissions);
     }
 
+    @Override
     public Subject getSubject() {
         return subject;
     }

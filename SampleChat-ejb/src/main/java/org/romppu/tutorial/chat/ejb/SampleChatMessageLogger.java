@@ -4,10 +4,9 @@
  */
 package org.romppu.tutorial.chat.ejb;
 
+import org.apache.log4j.Logger;
 import org.romppu.tutorial.chat.common.ChatMessage;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
@@ -15,6 +14,7 @@ import javax.jms.BytesMessage;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
+import java.util.Date;
 
 /**
  *
@@ -24,17 +24,17 @@ import javax.jms.MessageListener;
     @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge"),
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic"),
     @ActivationConfigProperty(propertyName = "subscriptionDurability", propertyValue = "Durable"),
-    @ActivationConfigProperty(propertyName = "clientId", propertyValue = "IntranetChatMessageLogger"),
-    @ActivationConfigProperty(propertyName = "subscriptionName", propertyValue = "IntranetChatMessageLogger")
+    @ActivationConfigProperty(propertyName = "clientId", propertyValue = "SampleChatMessageLogger"),
+    @ActivationConfigProperty(propertyName = "subscriptionName", propertyValue = "SampleChatMessageLogger")
 })
-public class IntranetChatMessageLogger implements MessageListener {
+public class SampleChatMessageLogger implements MessageListener {
     
-    private static final Logger logger = Logger.getLogger(IntranetChatMessageLogger.class.getName());
+    private static final Logger logger = SampleChatLogger.getLogger(SampleChatMessageLogger.class);
 
     @EJB
-    MessagePersistent messagePersistent;
+    MessagePersistence messagePersistence;
             
-    public IntranetChatMessageLogger() {
+    public SampleChatMessageLogger() {
     }
     
     @Override
@@ -44,14 +44,14 @@ public class IntranetChatMessageLogger implements MessageListener {
                 BytesMessage bytesMessage = (BytesMessage)message;
                 byte[] messageBytes = new byte[(int)bytesMessage.getBodyLength()];
                 bytesMessage.readBytes(messageBytes);
-                messagePersistent.createMessage(
-                        message.getStringProperty(ChatMessage.NICK), 
+                messagePersistence.createMessage(
+                        message.getStringProperty(ChatMessage.NICK),
                         message.getStringProperty(ChatMessage.MESSAGE),
                         new Date(message.getJMSTimestamp()),
                         messageBytes);
             }
         } catch (JMSException ex) {
-            logger.log(Level.SEVERE, "Cannot write message to db", ex);
+            logger.error("Cannot save message in database", ex);
         }
     }
 }
