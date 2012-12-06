@@ -1,5 +1,4 @@
-
-Copyright 2011 Roman Popov
+Copyright 2012 Roman Popov
 
 
     SampleChat is free software: you can redistribute it and/or modify
